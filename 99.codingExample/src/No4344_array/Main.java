@@ -1,46 +1,54 @@
 package No4344_array;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-	
-		int[] arr;
+		//갯수
+		int n;
+
+		n = sc.nextInt();
 		
-		int testcase = sc.nextInt();
+		String insert;
 		
-		for (int i = 0; i < testcase; i++) {
-			int N = sc.nextInt(); // 학생수
-			arr = new int[N];
-			
-			double sum = 0; // 성적 누적 합 변수
-			
-			//성적 입력 부분
-			for (int j = 0; j < N; j++) {
-				int val = sc.nextInt(); // 성적 입력
-				arr[j] = val;
-				sum += val;
-				
+		ArrayList<String> arr = new ArrayList<>();
+		String [] prearr = null;
+		for (int i = 0; i < n; i++) {
+			insert = sc.next();
+			//System.out.println("insert: " + insert);
+			prearr = insert.split("");
+			//System.out.println("prearr : " + prearr[0]);
+			arr.clear();
+			for (int j = 0; j < prearr.length; j++) {
+				arr.add(prearr[j].toUpperCase());
 			}
-			
-			double mean = (sum / N);
-			double count = 0; // 평균 넘는 학생 수 변수
-			
-			// 평균 넘는 학생 비율 찾기
-			for (int j = 0; j < N; j++) {
-				if(arr[j] > mean) {
-					count++;
+			//System.out.println("arr : " + arr);
+
+				//점수 카운트
+				int count = 1;
+				int result = 0;
+				String save = null;
+				for (String string : arr) {
+					save = string;
+					if(save.equals("O")) {
+						
+											
+						result += count;
+						count ++;
+						//System.out.println("result:" + result);
+						//System.out.println("count:" + count);
+					} else {
+						count = 1;
+
+					};
 				}
-				
-				
-			}
-			System.out.printf("%.3f%%\n",(count/N)*100);
+				System.out.println(result);
+
 			
 		}
-		sc.close();
-		
-		
 		
 
 	}
