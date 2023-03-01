@@ -2,45 +2,34 @@ package No1157_StringArray;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
-		String word = input.next();
-		int[] arr = new int[26];
-		int check;
-		for (int i = 0; i < word.length(); i++) {
-			if(65 <= word.charAt(i) && word.charAt(i)<= 90) {
-				check = arr[word.charAt(i) - 'A']++;
-				//System.out.println("i:" + i + "  " + "check1:" + check);
-				
-				
-				//arr[word.charAt(i) - 65]++;
-			} else {
-				check = arr[word.charAt(i) - 'a']++;
-				//System.out.println("i:" + i + "  " + "check2:" + check);
-				//arr[word.charAt(i) - 97]++;
-			}
-		}
+		Scanner in = new Scanner(System.in);
 		
-		int max = -1;
-		char ch = '?';
+		String input = in.nextLine();
 		
-		for (int i = 0; i < 26; i++) {
-			if(arr[i] > max) {
-				max = arr[i];
-				ch = (char) (i+65);
-			} else if (arr[i] == max) {
-				ch = '?';
-
-			}
-			
-			
-		}
-		System.out.println(ch);
+		String [] arr = input.split(" ");
+		
+		List<String> arr1 = new ArrayList<String>(Arrays.asList(arr));
+				
+		
+		//System.out.println(arr1);
+		
+		arr1.removeAll(Arrays.asList("", null));
+		
+		//System.out.println(arr1);
+		System.out.println(arr1.size());
+		
+	
 	}
+		
 }
+
+
+
 
 
 
